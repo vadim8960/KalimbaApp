@@ -1,5 +1,8 @@
 #include "buttonshandler.h"
 
+#define HEIGHT_MARGIN_PERCENT 0.03
+#define WIDTH_MARGIN_PERCENT 0.05
+
 ButtonsHandler::ButtonsHandler(QWidget* parent, int count_keys, QSize win_size) {
     _keys.resize(count_keys);
 
@@ -7,16 +10,20 @@ ButtonsHandler::ButtonsHandler(QWidget* parent, int count_keys, QSize win_size) 
         _keys[i] = new QPushButton(parent);
 
     ButtonsResize(win_size);
+
+    for (auto& i : _keys)
+        i->show();
 }
 
 void ButtonsHandler::ButtonsResize(QSize win_size) {
-    int current_x = win_size.width() * 0.05;
-    int space_btw_keys = win_size.width() * 0.03;
+    int current_x = win_size.width() * WIDTH_MARGIN_PERCENT;
+    int space_btw_keys = win_size.width() * 0.2 / _keys.size();
     int key_width =
             (win_size.width() - 2 * current_x - space_btw_keys * (_keys.size() - 1)) / _keys.size();
 
     int start_y = win_size.height() / 2;
-    int max_h = win_size.height() - win_size.height() * 0.05 - win_size.height() / 2;
+    int max_h =
+            win_size.height() - win_size.height() * HEIGHT_MARGIN_PERCENT - win_size.height() / 2;
     int min_h = max_h / 2;
     int dh = (max_h - min_h) / _keys.size();
     int current_h = min_h;
