@@ -31,11 +31,10 @@ set(TS_FILES kalimba_en_US.ts)
 
 set(PROJECT_SOURCES
         main.cpp
-        mainwindow.cpp
-        mainwindow.h
+        widget.cpp
+        widget.h
         buttonshandler.cpp
         buttonshandler.h
-        mainwindow.ui
         ${TS_FILES}
 )
 

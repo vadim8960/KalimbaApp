@@ -13,7 +13,7 @@ void ButtonsHandler::ButtonsResize(QSize win_size) {
     int current_x = win_size.width() * 0.05;
     int space_btw_keys = win_size.width() * 0.03;
     int key_width =
-        (win_size.width() - 2 * current_x - space_btw_keys * (_keys.size() - 1)) / _keys.size();
+            (win_size.width() - 2 * current_x - space_btw_keys * (_keys.size() - 1)) / _keys.size();
 
     int start_y = win_size.height() / 2;
     int max_h = win_size.height() - win_size.height() * 0.05 - win_size.height() / 2;
