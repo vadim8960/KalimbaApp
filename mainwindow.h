@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSpinBox>
 #include "buttonshandler.h"
 
 QT_BEGIN_NAMESPACE
@@ -18,8 +19,13 @@ class MainWindow : public QMainWindow {
     ~MainWindow();
     void resizeEvent(QResizeEvent* iconSize);
 
+  private slots:
+    void _change_value(int value);
+
   private:
     Ui::MainWindow* ui;
+
+    QSpinBox* _spin_box;
 
     ButtonsHandler* _btn_handler;
 };
