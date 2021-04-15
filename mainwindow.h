@@ -18,14 +18,17 @@ class MainWindow : public QMainWindow {
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
     void resizeEvent(QResizeEvent* iconSize);
+    void keyPressEvent(QKeyEvent* event);
+    void keyReleaseEvent(QKeyEvent* event);
 
   private slots:
-    void _change_value(int value);
+    void _change_value();
 
   private:
     Ui::MainWindow* ui;
 
     QSpinBox* _spin_box;
+    QPushButton* _btn_change_ck;
 
     ButtonsHandler* _btn_handler;
 };
